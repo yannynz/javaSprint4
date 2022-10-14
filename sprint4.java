@@ -21,7 +21,7 @@ public class sprint4 {
                 qtdP[j] = gera.nextInt(1, 10);
                 System.out.println(
                         " equipe " + (numEquipe[i] = i + 1) + " fez " + qtdP[i] + " Pontos x equipe "
-                                + (numEquipe[i] = j + 1) + " fez " + qtdP[j]
+                                + (numEquipe[i] = j + 1) + " fez " + qtdP[i + 1]
                                 + " Pontos");
                 System.out.println("");
                 pDesing[i] = gera.nextInt(1, 10);
@@ -32,24 +32,16 @@ public class sprint4 {
                 }
             }
         }
+        for (int i = 0; i < qtdP.length; i++) {
+            aux = qtdP[i];
+            qtdP[i] = qtdP[i + 1];
+            qtdP[i + 1] = aux;
 
-        for (int j = 1; j <= qtdP.length; j++) {
-            for (int i = 0; i < qtdP.length - 1; i++) {
-                if (qtdP[i] < qtdP[i + 1] || pDesing[i] < pDesing[i + 1] && qtdP[i] == qtdP[i + 1]) {
-                    aux = qtdP[i];
-                    qtdP[i] = qtdP[i + 1];
-                    qtdP[i + 1] = aux;
-
-                    aux1 = pDesing[i];
-                    pDesing[i] = pDesing[i + 1];
-                    pDesing[i + 1] = aux1;
-
-                    aux2 = numEquipe[i];
-                    numEquipe[i] = numEquipe[i + 1];
-                    numEquipe[i + 1] = aux2;
-                }
-            }
+            aux2 = numEquipe[i];
+            numEquipe[i] = numEquipe[i + 1];
+            numEquipe[i + 1] = aux2;
         }
+
         System.out.println("\n Ranking: (Em caso de empate, a nota de design do robô será quesito de desempate) ");
         System.out.println();
         for (int i = 0; i < qtdP.length; i++) {
